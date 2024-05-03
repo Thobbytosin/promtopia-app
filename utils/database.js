@@ -12,16 +12,9 @@ export const connectToDatabase = async () => {
   }
 
   try {
-    // const url = process.env.MONGODB_URL;
+    const url = process.env.MONGODB_URL;
 
-    await mongoose.connect(
-      "mongodb+srv://gabrieltobiloba11:cxM4Vzxs05CKiUQz@cluster0.wsxwkqp.mongodb.net/cluster0?retryWrites=true&w=majority&appName=cluster0",
-      {
-        dbName: "share_prompt",
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      }
-    );
+    await mongoose.connect(url);
     isConnected = true;
     console.log("Connected to MongoDB successfully");
   } catch (error) {
