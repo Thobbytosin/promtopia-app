@@ -7,6 +7,7 @@ import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 const Nav = () => {
   const { data: session } = useSession();
+  console.log(session);
 
   const [providers, setProviders] = useState(false);
   const [toggleDropdown, setToggleDropdown] = useState(false);
@@ -47,7 +48,7 @@ const Nav = () => {
 
             <Link href="/profile">
               <Image
-                src={session.user.image || "/assets/images/logo.svg"}
+                src={session?.user.image || "/assets/images/logo.svg"}
                 width={37}
                 height={37}
                 alt="Profile"
@@ -56,29 +57,28 @@ const Nav = () => {
             </Link>
           </div>
         ) : (
-          // <>
-          //   {providers &&
-          //     Object.values(providers).map((prov) => (
-          //       <button
-          //         type="button"
-          //         key={prov.name}
-          //         onClick={() => signIn(prov.id)}
-          //         className=" black_btn"
-          //       >
-          //         Sign In
-          //       </button>
-          //     ))}
-          // </>
-          <>
-            <button
-              type="button"
-              // key={prov.name}
-              // onClick={() => signIn(prov.id)}
-              className=" black_btn"
-            >
-              Sign In
-            </button>
-          </>
+          <div className=" flex gap-4">
+            {providers?.google && (
+              <button
+                type="button"
+                key={providers?.google.name}
+                onClick={() => signIn(providers?.google.id)}
+                className=" black_btn"
+              >
+                Sign In
+              </button>
+            )}
+            {providers?.github && (
+              <button
+                type="button"
+                key={providers?.github.name}
+                onClick={() => signIn(providers?.github.id)}
+                className=" outline_btn"
+              >
+                Sign In with GitHub
+              </button>
+            )}
+          </div>
         )}
       </div>
 
