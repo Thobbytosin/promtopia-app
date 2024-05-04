@@ -20,13 +20,13 @@ const Feed = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await fetch("/api/prompt/getPrompt");
+      const res = await fetch("/api/prompt");
       const data = await res.json();
 
       setPosts(data);
     };
     fetchPosts();
-  }, []);
+  }, [posts]);
 
   const filterSearch = (searchtext) => {
     const results = posts?.filter(
