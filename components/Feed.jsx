@@ -5,7 +5,7 @@ import PromptCard from "./PromptCard";
 const PromptCardList = ({ data, handleTag }) => {
   return (
     <div className="mt-16  prompt_layout   ">
-      {data.map((post) => (
+      {data?.map((post) => (
         <PromptCard key={post._id} post={post} handleTagClick={handleTag} />
       ))}
     </div>
@@ -26,7 +26,7 @@ const Feed = () => {
       setPosts(data);
     };
     fetchPosts();
-  }, [data]);
+  }, []);
 
   const filterSearch = (searchtext) => {
     const results = posts?.filter(
