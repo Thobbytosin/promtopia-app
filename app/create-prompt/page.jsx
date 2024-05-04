@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Form from "@components/Form";
@@ -9,11 +9,16 @@ const CreatePrompt = () => {
   const router = useRouter();
   const { data: session } = useSession();
 
+  useEffect(() => {
+    setCreate(false);
+  });
+
   const [submitting, setSubmitting] = useState(false);
   const [post, setPost] = useState({
     prompt: "",
     tag: "",
   });
+  const [create, setCreate] = useState(null);
 
   const createPrompt = async (e) => {
     e.preventDefault();
@@ -33,7 +38,8 @@ const CreatePrompt = () => {
       });
 
       if (res.ok) {
-        router.push("/");
+        // router.push("/");
+        setCreate(true);
       }
     } catch (error) {
       console.log(error);
@@ -49,6 +55,7 @@ const CreatePrompt = () => {
       setPost={setPost}
       submitting={submitting}
       handleSubmit={createPrompt}
+      isCreate={create}
     />
   );
 };

@@ -7,7 +7,6 @@ import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 const Nav = () => {
   const { data: session } = useSession();
-  console.log(session);
 
   const [providers, setProviders] = useState(false);
   const [toggleDropdown, setToggleDropdown] = useState(false);
@@ -18,7 +17,7 @@ const Nav = () => {
       setProviders(res);
     };
     provider();
-  }, []);
+  }, [providers]);
 
   console.log(providers);
 

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
+const Form = ({ type, post, setPost, submitting, handleSubmit, isCreate }) => {
   return (
     <section className=" w-full max-w-full flex-start flex-col">
       <h1 className="head_text text-left">
@@ -54,6 +54,9 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           </button>
         </div>
       </form>
+      {isCreate && (
+        <p className=" text-sm text-green-300 mt-5">Prompt created</p>
+      )}
     </section>
   );
 };

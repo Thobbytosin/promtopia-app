@@ -26,7 +26,7 @@ const Feed = () => {
       setPosts(data);
     };
     fetchPosts();
-  }, []);
+  }, [data]);
 
   const filterSearch = (searchtext) => {
     const results = posts?.filter(
@@ -83,7 +83,7 @@ const Feed = () => {
           handleTag={handleTagClick}
         />
       ) : (
-        <PromptCardList data={posts} handleTag={handleTagClick} />
+        <PromptCardList data={posts && posts} handleTag={handleTagClick} />
       )}
     </section>
   );
