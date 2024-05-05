@@ -11,7 +11,7 @@ const CreatePrompt = () => {
 
   useEffect(() => {
     setCreate(false);
-  });
+  }, []);
 
   const [submitting, setSubmitting] = useState(false);
   const [post, setPost] = useState({
@@ -40,6 +40,7 @@ const CreatePrompt = () => {
       if (res.ok) {
         // router.push("/");
         setCreate(true);
+        setPost({ prompt: "", tag: "" });
       }
     } catch (error) {
       console.log(error);

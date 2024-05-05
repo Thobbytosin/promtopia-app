@@ -12,21 +12,21 @@ const PromptCardList = ({ data, handleTag }) => {
   );
 };
 
-const Feed = () => {
+const Feed = ({ posts }) => {
   const [searchText, setSearchText] = useState("");
-  const [posts, setPosts] = useState([]);
+  // const [posts, setPosts] = useState([]);
   const [searchedPostsResults, setSearchedPostsResults] = useState([]);
   const [searchTimeout, setSearchTimeout] = useState(null);
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const res = await fetch("/api/prompt");
-      const data = await res.json();
+  // useEffect(() => {
+  //   const fetchPosts = async () => {
+  //     const res = await fetch("/api/prompt");
+  //     const data = await res.json();
 
-      setPosts(data);
-    };
-    fetchPosts();
-  }, [posts]);
+  //     setPosts(data);
+  //   };
+  //   fetchPosts();
+  // }, [posts]);
 
   const filterSearch = (searchtext) => {
     const results = posts?.filter(

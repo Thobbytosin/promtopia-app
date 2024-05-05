@@ -55,7 +55,9 @@ const Form = ({ type, post, setPost, submitting, handleSubmit, isCreate }) => {
         </div>
       </form>
       {isCreate && (
-        <p className=" text-sm text-green-300 mt-5">Prompt created</p>
+        <div className=" bg-green-100 my-7 p-5 w-full max-w-2xl  rounded-xl">
+          <p className=" text-sm text-gray-700 font-satoshi">Prompt created</p>
+        </div>
       )}
     </section>
   );
