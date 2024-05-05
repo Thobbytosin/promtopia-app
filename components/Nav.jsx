@@ -19,8 +19,6 @@ const Nav = () => {
     provider();
   }, [providers]);
 
-  console.log(providers);
-
   return (
     <nav className=" w-full flex-between mb-16 pt-6">
       <Link href="/" className=" flex-center gap-2 ">
@@ -124,19 +122,28 @@ const Nav = () => {
             )}
           </div>
         ) : (
-          <>
-            {providers &&
-              Object.values(providers).map((prov) => (
-                <button
-                  type="button"
-                  key={prov.name}
-                  onClick={() => signIn(prov.id)}
-                  className=" black_btn"
-                >
-                  Sign In
-                </button>
-              ))}
-          </>
+          <div className=" flex gap-4">
+            {providers?.google && (
+              <button
+                type="button"
+                key={providers?.google.name}
+                onClick={() => signIn(providers?.google.id)}
+                className=" black_btn"
+              >
+                Sign In
+              </button>
+            )}
+            {providers?.github && (
+              <button
+                type="button"
+                key={providers?.github.name}
+                onClick={() => signIn(providers?.github.id)}
+                className=" outline_btn"
+              >
+                Sign In with GitHub
+              </button>
+            )}
+          </div>
         )}
       </div>
     </nav>

@@ -38,7 +38,7 @@ const CreatePrompt = () => {
       });
 
       if (res.ok) {
-        // router.push("/");
+        router.push("/");
         setCreate(true);
         setPost({ prompt: "", tag: "" });
       }
