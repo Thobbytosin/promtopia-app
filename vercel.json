@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "next.config.js",
+      "use": "@vercel/next"
+    }
+  ],
+  "functions": {
+    "api/auth/[...auth]": {
+      "memory": 3008,
+      "maxDuration": 900
+    }
+  },
+  "env": {
+    "NEXT_PUBLIC_GOOGLE_CLIENT_ID": "1042763016304-ucp99582aeiopqvgpu38r8qg9o7j8n28.apps.googleusercontent.com",
+    "NEXT_PUBLIC_GOOGLE_CLIENT_SECRET": "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",
+    "NEXT_PUBLIC_GITHUB_CLIENT_ID": "Ov23liSnEwCquKPDaOKg",
+    "NEXT_PUBLIC_GITHUB_CLIENT_SECRET": "9585499f94cea3987c88a6a419728fe37b5467db"
+  }
+}
