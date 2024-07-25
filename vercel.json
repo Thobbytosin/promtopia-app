@@ -7,9 +7,9 @@
     }
   ],
   "functions": {
-    "app/api/auth/[...nextauth]/route.js": {
-      "memory": 3008,
-      "maxDuration": 900
+    "app/api/auth/[...nextauth]": {
+      "memory": 1024,
+      "maxDuration": 600
     }
   },
   "env": {
